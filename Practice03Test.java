@@ -51,29 +51,28 @@ public class Practice03Test {
 		}
 	}
 
-
+	//O(n)
 	public int find_min_iterative () {
-		int min = 0;
-		for (int i = 1; i < arr.length; i++) {
-			if(arr[min] > arr[i]) {
-				min = i;
-			}
+		int min = 0; //O(1)
+		for (int i = 1; i < arr.length; i++) { //O(1)
+			if(arr[min] > arr[i]) //O(n)
+				min = i; //O(n)
 		}
-		return min;
+		return min; //O(1)
 	}
 
+	//O(n)
 	//helper function
-	public int find_min_recursive (int min, int next, double[] a) {
-		if(next >= arr.length){
-			return min;
-		}
-		if (a[min] > a[next])
-			min = next;
-		return find_min_recursive(min, next + 1, a);
+	public int find_min_recursive (int min, int next) {
+		if(next >= arr.length) //O(1)
+			return min; //O(1)
+		if (arr[min] > arr[next]) //O(1)
+			min = next; //O(1)
+		return find_min_recursive(min, next + 1); //O(n)
 	}
 
 	public int find_min_recursive () {
-		return find_min_recursive(0, 1, arr);
+		return find_min_recursive(0, 1); //O(1)
 	}
 
 
